@@ -22,7 +22,6 @@ const FUEL_COST = {
 	"instant":  30.0
 }
 
-
 var skills = {
 	"dash":     false,
 	"grapple":  false,
