@@ -1,7 +1,47 @@
 [gd_scene format=3 uid="uid://camlgx74mlna4"]
 
 [ext_resource type="Script" uid="uid://b6rwu6r4il3so" path="res://game_scenes/menus/MainMenu/main_menu.gd" id="1_h6sl1"]
+[ext_resource type="Shader" uid="uid://5vdgvvq2w3e8" path="res://game_scenes/menus/MainMenu/clouds.gdshader" id="2_3phpx"]
 [ext_resource type="Script" uid="uid://cxjik30ut0s3y" path="res://systems/Rebind Button Script Module/RebindButton.gd" id="2_c5njb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3phpx"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kcaeb"]
+noise = SubResource("FastNoiseLite_3phpx")
+seamless = true
+invert = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x2ujj"]
+noise_type = 5
+seed = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_abyub"]
+width = 320
+height = 180
+noise = SubResource("FastNoiseLite_x2ujj")
+seamless = true
+as_normal_map = true
+seamless_blend_skirt = 1.0
+bump_strength = 17.5
+
+[sub_resource type="Gradient" id="Gradient_6hcsl"]
+offsets = PackedFloat32Array(0, 0.4402985, 1)
+colors = PackedColorArray(0.36078432, 0.41568628, 0.4509804, 1, 0.16078432, 0.19607843, 0.22352941, 1, 0.019607844, 0.023529412, 0.03137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1bdr"]
+gradient = SubResource("Gradient_6hcsl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcaeb"]
+shader = ExtResource("2_3phpx")
+shader_parameter/pixelation = Vector2(320, 180)
+shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_kcaeb")
+shader_parameter/scroll_speed1 = Vector2(0.02, 0.007)
+shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_abyub")
+shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
+shader_parameter/center_pos = Vector2(0.5, 0)
+shader_parameter/position_impact = 0.749999983236
+shader_parameter/color_gardient = SubResource("GradientTexture1D_b1bdr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqmwn"]
 bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
@@ -24,7 +64,8 @@ grow_vertical = 2
 script = ExtResource("1_h6sl1")
 next_level_path = "uid://cbh3de4aa1ibn"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=29496978]
+[node name="Background" type="ColorRect" parent="." unique_id=133059736]
+material = SubResource("ShaderMaterial_kcaeb")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +77,7 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 128.0
+offset_bottom = 76.0
 grow_horizontal = 2
 bbcode_enabled = true
 text = "GAME NAME"
@@ -52,7 +93,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 250
 theme_override_constants/margin_bottom = 10
 

@@ -55,6 +55,10 @@ folder_colors={
 
 player=""
 
+[gui]
+
+theme/custom_font="uid://dsagmrdvfwb21"
+
 [input]
 
 move_up={
