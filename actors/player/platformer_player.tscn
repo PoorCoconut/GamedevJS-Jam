@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d1inlq8deaqoy" path="res://actors/player/PlayerFSM/Platformer/state_fall.gd" id="6_7x6a1"]
 
 [node name="PlatformerPlayer" unique_id=240714517 instance=ExtResource("1_4ujs0")]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("2_xdu1m")
 JUMP_VELOCITY = -200.0
 GRAVITY = 300.0
