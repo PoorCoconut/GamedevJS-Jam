@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cdq1w16bsklp2" path="res://icon.svg" id="1_fdcpw"]
 [ext_resource type="PackedScene" uid="uid://begvhj5jhxtcv" path="res://actors/player/platformer_player.tscn" id="2_kn1g2"]
+[ext_resource type="PackedScene" uid="uid://4mkboxfad15r" path="res://systems/Pixel Perfect Component/pixel_perfect_layer.tscn" id="3_p0ue2"]
+[ext_resource type="PackedScene" uid="uid://b3fobc4mms4jw" path="res://systems/World Camera Component/world_camera_component.tscn" id="4_p3oyl"]
+[ext_resource type="PackedScene" uid="uid://dkoukg5r3n3us" path="res://objects/Props/Flag/prop_flag.tscn" id="5_p3oyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kn1g2"]
 texture = ExtResource("1_fdcpw")
@@ -154,4 +157,14 @@ MAX_SPEED = 169.0
 ACCELERATION = 67.0
 FRICTION = 5.0
 
-[node name="Camera2D" type="Camera2D" parent="PlatformerPlayer" unique_id=1056659072]
+[node name="PixelPerfectLayer" parent="." unique_id=1244063802 node_paths=PackedStringArray("main_camera") instance=ExtResource("3_p0ue2")]
+main_camera = NodePath("../WorldCameraComponent")
+
+[node name="WorldCameraComponent" parent="." unique_id=1725945058 node_paths=PackedStringArray("target") instance=ExtResource("4_p3oyl")]
+target = NodePath("../PlatformerPlayer")
+
+[node name="PropFlag" parent="." unique_id=7794145 instance=ExtResource("5_p3oyl")]
+position = Vector2(184, -72)
+
+[node name="PropFlag2" parent="." unique_id=164490037 instance=ExtResource("5_p3oyl")]
+position = Vector2(144, -72)
