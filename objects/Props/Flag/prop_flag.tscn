@@ -16,5 +16,3 @@ max_wind_reference = 500.0
 [node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=1718791788]
 rect = Rect2(-40, -40, 80, 80)
 show_rect = false
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1858904951]
