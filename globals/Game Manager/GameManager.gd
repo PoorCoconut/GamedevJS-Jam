@@ -3,6 +3,9 @@ extends Node
 var CURRENT_WORLD_STATE : String = "Nothing"
 const SAVE_PATH : String = "user://savegame.json"
 
+#Environmental Variables
+var wind_speed : float = 100.0
+
 func _ready() -> void:
 	print("GAME MANAGER LOADED!")
 
