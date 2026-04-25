@@ -150,7 +150,6 @@ tile_set = SubResource("TileSet_4c24i")
 
 [node name="PlatformerPlayer" parent="." unique_id=240714517 instance=ExtResource("2_kn1g2")]
 position = Vector2(358, -82)
-MAX_FUEL = 100.0
 JUMP_VELOCITY = -50.0
 GRAVITY = 200.0
 MAX_SPEED = 169.0
