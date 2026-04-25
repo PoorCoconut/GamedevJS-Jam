@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cdq1w16bsklp2" path="res://icon.svg" id="1_81e53"]
 [ext_resource type="PackedScene" uid="uid://b3fobc4mms4jw" path="res://systems/World Camera Component/world_camera_component.tscn" id="2_ji3no"]
-[ext_resource type="PackedScene" uid="uid://begvhj5jhxtcv" path="res://actors/player/platformer_player.tscn" id="3_r31nx"]
+[ext_resource type="PackedScene" uid="uid://begvhj5jhxtcv" path="res://actors/player/player.tscn" id="3_r31nx"]
 [ext_resource type="PackedScene" uid="uid://b5kib01h7s7am" path="res://systems/Camera Limit Zone Component/camera_limit_zone_component.tscn" id="4_twnyn"]
+[ext_resource type="PackedScene" uid="uid://bkrih4wj555nw" path="res://systems/Pause Menu Component/pause_menu_component.tscn" id="5_twnyn"]
+[ext_resource type="PackedScene" uid="uid://4mkboxfad15r" path="res://systems/Pixel Perfect Component/pixel_perfect_layer.tscn" id="6_5nh78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yr2sr"]
 texture = ExtResource("1_81e53")
@@ -192,6 +194,11 @@ shape = SubResource("RectangleShape2D_ji3no")
 [node name="CollisionShape2D" parent="CameraLimitZoneComponent4" index="0" unique_id=282465000]
 position = Vector2(-52, 192)
 shape = SubResource("RectangleShape2D_r31nx")
+
+[node name="PauseMenuComponent" parent="." unique_id=547681459 instance=ExtResource("5_twnyn")]
+visible = false
+
+[node name="PixelPerfectLayer" parent="." unique_id=1244063802 instance=ExtResource("6_5nh78")]
 
 [editable path="CameraLimitZoneComponent"]
 [editable path="CameraLimitZoneComponent2"]
