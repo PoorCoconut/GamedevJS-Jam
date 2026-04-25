@@ -23,9 +23,18 @@ enum CameraMode {
 ## How fast the camera catches up to the target and glides between rooms
 @export var camera_speed: float = 5.0
 
+##How far the player must move UP before the camera commits to looking up
+@export var vertical_shift_threshold: float = 80.0
+##How many seconds the player must fall before the camera commits to looking down
+@export var fall_time_threshold: float = 0.4
+
 var cameraShakeNoise : FastNoiseLite
 var viewport_width : float
 var viewport_height : float
+
+var vertical_anchor_y: float
+var fall_timer: float = 0.0
+var target_lookahead_y: float = 0.0
 
 # Platformer State Variables
 var focus_position: Vector2
@@ -45,6 +54,7 @@ func _ready() -> void:
 	if target:
 		focus_position = target.global_position
 		global_position = target.global_position
+		vertical_anchor_y = target.global_position.y
 	
 	if camera_mode == CameraMode.ROOM_BASED:
 		anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
@@ -79,31 +89,55 @@ func _update_platformer_camera(delta: float) -> void:
 	if abs(dist_y) > deadzone_size.y:
 		focus_position.y += dist_y - (sign(dist_y) * deadzone_size.y)
 
-	var target_lookahead = Vector2.ZERO
-	
-	#Horizontal
+	#Horizontal Lookahead (Velocity Based)
+	var target_lookahead_x = 0.0
 	if target.velocity.x > 10:
-		target_lookahead.x = lookahead_distance.x
+		target_lookahead_x = lookahead_distance.x
 	elif target.velocity.x < -10:
-		target_lookahead.x = -lookahead_distance.x
+		target_lookahead_x = -lookahead_distance.x
+
+	#Vertical Lookahead (State Based)
+	var y_diff = target.global_position.y - vertical_anchor_y
+
+	#Track how long the player has been falling
+	if target.velocity.y > 0 and not target.is_on_floor():
+		fall_timer += delta
+	else:
+		fall_timer = 0.0
+
+	#Climbing: Check if player moved significantly UP from the anchor
+	if y_diff < -vertical_shift_threshold:
+		target_lookahead_y = -lookahead_distance.y
+		vertical_anchor_y = target.global_position.y # Drag the anchor up with them
 		
-	#Vertical
-	if target.velocity.y > 10: # Falling down
-		target_lookahead.y = lookahead_distance.y
-	elif target.velocity.y < -10: # Jumping up
-		target_lookahead.y = -lookahead_distance.y
+	#Falling: Check if player has fallen for a sustained time
+	elif fall_timer > fall_time_threshold:
+		target_lookahead_y = lookahead_distance.y
+		vertical_anchor_y = target.global_position.y # Sync anchor so it doesn't snap later
+
+	#Grounded Reset: Slowly normalize the camera if running flat
+	if target.is_on_floor():
+		#Pull the anchor back to the player's feet
+		vertical_anchor_y = lerpf(vertical_anchor_y, target.global_position.y, delta * 3.0)
 		
-	current_lookahead.x = lerpf(current_lookahead.x, target_lookahead.x, delta * lookahead_speed)
-	current_lookahead.y = lerpf(current_lookahead.y, target_lookahead.y, delta * lookahead_speed)
+		#If the anchor has caught up to the player, slowly recenter the Y lookahead
+		if abs(target.global_position.y - vertical_anchor_y) < 5.0:
+			target_lookahead_y = lerpf(target_lookahead_y, 0.0, delta * 2.0)
+
+	#Apply the smooth lerp to current lookaheads
+	current_lookahead.x = lerpf(current_lookahead.x, target_lookahead_x, delta * lookahead_speed)
+	current_lookahead.y = lerpf(current_lookahead.y, target_lookahead_y, delta * lookahead_speed)
 	
 	var target_pos = focus_position + current_lookahead
 
+	#Apply Room Limits Manually to the Target Position
 	var half_w = (viewport_width / 2.0) / zoom.x
 	var half_h = (viewport_height / 2.0) / zoom.y
 	
 	target_pos.x = clamp(target_pos.x, target_limit_left + half_w, target_limit_right - half_w)
 	target_pos.y = clamp(target_pos.y, target_limit_top + half_h, target_limit_bottom - half_h)
 
+	#Smoothly Glide
 	global_position = global_position.lerp(target_pos, delta * camera_speed)
 
 func apply_room_limits(left: int, right: int, top: int, bottom: int) -> void:

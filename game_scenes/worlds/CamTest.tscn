@@ -162,7 +162,9 @@ tile_set = SubResource("TileSet_kokyq")
 [node name="WorldCameraComponent" parent="." unique_id=1725945058 node_paths=PackedStringArray("target") instance=ExtResource("2_ji3no")]
 camera_mode = 2
 target = NodePath("../PlatformerPlayer")
-lookahead_distance = Vector2(60, 60)
+lookahead_distance = Vector2(60, 200)
+lookahead_speed = 10.0
+deadzone_size = Vector2(50, 50)
 
 [node name="PlatformerPlayer" parent="." unique_id=240714517 instance=ExtResource("3_r31nx")]
 position = Vector2(-184, -8)
