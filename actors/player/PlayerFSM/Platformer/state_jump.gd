@@ -1,13 +1,16 @@
 extends State
 func enterState():
 	PLAYER.velocity.y = PLAYER.JUMP_VELOCITY
+	PLAYER.jump_timer = 0.0
+	PLAYER.velocity.x *= 0.5
 
 func updateState(delta : float):
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up") and PLAYER.jump_timer < PLAYER.JUMP_MAX_DURATION:
+		PLAYER.jump_timer += delta
 		if PLAYER.use_fuel("jump", delta):
 			PLAYER.velocity.y = move_toward(PLAYER.velocity.y, PLAYER.JUMP_MAX_VELOCITY, PLAYER.JUMP_ACCELERATION * delta)
 		else:
-			PLAYER.velocity.y = move_toward(PLAYER.velocity.y, PLAYER.JUMP_MAX_VELOCITY * 0.3, PLAYER.JUMP_ACCELERATION * 0.2 * delta)
+			PLAYER.velocity.y = move_toward(PLAYER.velocity.y, PLAYER.JUMP_MAX_VELOCITY * 0.15, PLAYER.JUMP_ACCELERATION * 0.1 * delta)
 	
 	if Input.is_action_just_released("move_up") and PLAYER.velocity.y < 0:
 		PLAYER.velocity.y *= 0.5
@@ -32,7 +35,7 @@ func movement(delta : float) -> void:
 		elif PLAYER.use_fuel("move", delta):
 			PLAYER.velocity.x = move_toward(PLAYER.velocity.x, direction * PLAYER.MAX_SPEED, PLAYER.ACCELERATION * delta)
 		else:
-			PLAYER.velocity.x = move_toward(PLAYER.velocity.x, direction * PLAYER.MAX_SPEED * 0.3, PLAYER.ACCELERATION * 0.3 * delta)
+			PLAYER.velocity.x = move_toward(PLAYER.velocity.x, direction * PLAYER.MAX_SPEED * 0.15, PLAYER.ACCELERATION * 0.15 * delta)
 	else:
 		PLAYER.velocity.x = move_toward(PLAYER.velocity.x, 0, PLAYER.AIR_FRICTION * delta)
 	

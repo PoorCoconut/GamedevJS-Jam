@@ -8,11 +8,13 @@ const FUEL_JUMP_DRAIN : float = 15.0
 const FUEL_MOVE_DRAIN : float = 8.0
 
 @export var JUMP_VELOCITY : float = -50
-@export var GRAVITY : float = 300
-const TURN_FRICTION = 67.0
-const JUMP_MAX_VELOCITY = -320.0
-const JUMP_ACCELERATION = 225.0
-const AIR_FRICTION = 169.0
+@export var GRAVITY : float = 175
+const JUMP_MAX_DURATION = 0.8
+var jump_timer : float = 0.0
+const TURN_FRICTION = 40.0
+const JUMP_MAX_VELOCITY = -200.0
+const JUMP_ACCELERATION = 250.0
+const AIR_FRICTION = 80.0
 
 const FUEL_COST = {
 	"jump":     15.0,

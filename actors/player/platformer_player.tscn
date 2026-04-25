@@ -9,10 +9,14 @@
 [ext_resource type="Script" uid="uid://d1inlq8deaqoy" path="res://actors/player/PlayerFSM/Platformer/state_fall.gd" id="6_7x6a1"]
 
 [node name="PlatformerPlayer" unique_id=240714517 instance=ExtResource("1_4ujs0")]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.125, 0.125)
 script = ExtResource("2_xdu1m")
-JUMP_VELOCITY = -200.0
-GRAVITY = 300.0
+MAX_FUEL = 100.0
+JUMP_VELOCITY = -50.0
+GRAVITY = 175.0
+MAX_SPEED = 75.0
+ACCELERATION = 25.0
+FRICTION = 5.0
 
 [node name="DebugStateLabel" parent="." index="2" unique_id=1664998739]
 unique_name_in_owner = true
