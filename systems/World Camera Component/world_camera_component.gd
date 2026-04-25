@@ -15,7 +15,7 @@ enum CameraMode {
 
 @export_group("Platformer Settings")
 ## How far the camera looks ahead in the facing direction
-@export var lookahead_distance: float = 60.0
+@export var lookahead_distance: Vector2 = Vector2(60.0, 40.0) 
 ## How fast the camera shifts its lookahead
 @export var lookahead_speed: float = 3.0
 ## The box where the player can move without moving the camera anchor
@@ -70,7 +70,7 @@ func _update_camera_position(delta: float) -> void:
 			_update_platformer_camera(delta)
 
 func _update_platformer_camera(delta: float) -> void:
-	# 1 & 2. The Deadzone (Focus Position)
+	#Camera Deadzone
 	var dist_x = target.global_position.x - focus_position.x
 	if abs(dist_x) > deadzone_size.x:
 		focus_position.x += dist_x - (sign(dist_x) * deadzone_size.x)
@@ -79,14 +79,22 @@ func _update_platformer_camera(delta: float) -> void:
 	if abs(dist_y) > deadzone_size.y:
 		focus_position.y += dist_y - (sign(dist_y) * deadzone_size.y)
 
-	# Lookahead based on player velocity
-	var target_lookahead_x = 0.0
+	var target_lookahead = Vector2.ZERO
+	
+	#Horizontal
 	if target.velocity.x > 10:
-		target_lookahead_x = lookahead_distance
+		target_lookahead.x = lookahead_distance.x
 	elif target.velocity.x < -10:
-		target_lookahead_x = -lookahead_distance
+		target_lookahead.x = -lookahead_distance.x
 		
-	current_lookahead.x = lerpf(current_lookahead.x, target_lookahead_x, delta * lookahead_speed)
+	#Vertical
+	if target.velocity.y > 10: # Falling down
+		target_lookahead.y = lookahead_distance.y
+	elif target.velocity.y < -10: # Jumping up
+		target_lookahead.y = -lookahead_distance.y
+		
+	current_lookahead.x = lerpf(current_lookahead.x, target_lookahead.x, delta * lookahead_speed)
+	current_lookahead.y = lerpf(current_lookahead.y, target_lookahead.y, delta * lookahead_speed)
 	
 	var target_pos = focus_position + current_lookahead
 

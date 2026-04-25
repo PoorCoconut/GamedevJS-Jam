@@ -150,6 +150,9 @@ size = Vector2(400, 177)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3no"]
 size = Vector2(960, 352)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r31nx"]
+size = Vector2(408, 352)
+
 [node name="CamTest" type="Node2D" unique_id=1496001138]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1305912070]
@@ -159,9 +162,10 @@ tile_set = SubResource("TileSet_kokyq")
 [node name="WorldCameraComponent" parent="." unique_id=1725945058 node_paths=PackedStringArray("target") instance=ExtResource("2_ji3no")]
 camera_mode = 2
 target = NodePath("../PlatformerPlayer")
+lookahead_distance = Vector2(60, 60)
 
 [node name="PlatformerPlayer" parent="." unique_id=240714517 instance=ExtResource("3_r31nx")]
-position = Vector2(72, -8)
+position = Vector2(-184, -8)
 
 [node name="CameraLimitZoneComponent" parent="." unique_id=276472449 instance=ExtResource("4_twnyn")]
 
@@ -181,6 +185,13 @@ shape = SubResource("RectangleShape2D_8n284")
 position = Vector2(-608, -160)
 shape = SubResource("RectangleShape2D_ji3no")
 
+[node name="CameraLimitZoneComponent4" parent="." unique_id=2114653228 instance=ExtResource("4_twnyn")]
+
+[node name="CollisionShape2D" parent="CameraLimitZoneComponent4" index="0" unique_id=282465000]
+position = Vector2(-52, 192)
+shape = SubResource("RectangleShape2D_r31nx")
+
 [editable path="CameraLimitZoneComponent"]
 [editable path="CameraLimitZoneComponent2"]
 [editable path="CameraLimitZoneComponent3"]
+[editable path="CameraLimitZoneComponent4"]
