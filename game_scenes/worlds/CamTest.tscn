@@ -147,6 +147,9 @@ size = Vector2(320, 177)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n284"]
 size = Vector2(400, 177)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3no"]
+size = Vector2(960, 352)
+
 [node name="CamTest" type="Node2D" unique_id=1496001138]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1305912070]
@@ -172,5 +175,12 @@ shape = SubResource("RectangleShape2D_5nh78")
 position = Vector2(392, -72)
 shape = SubResource("RectangleShape2D_8n284")
 
+[node name="CameraLimitZoneComponent3" parent="." unique_id=654170764 instance=ExtResource("4_twnyn")]
+
+[node name="CollisionShape2D" parent="CameraLimitZoneComponent3" index="0" unique_id=282465000]
+position = Vector2(-608, -160)
+shape = SubResource("RectangleShape2D_ji3no")
+
 [editable path="CameraLimitZoneComponent"]
 [editable path="CameraLimitZoneComponent2"]
+[editable path="CameraLimitZoneComponent3"]
