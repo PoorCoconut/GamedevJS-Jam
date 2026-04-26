@@ -12,7 +12,7 @@ class_name Player
 @export var JUMP_VELOCITY : float = -50
 @export var JUMP_MAX_VELOCITY : float = -200.0
 @export var JUMP_ACCELERATION : float = 250.0
-@export var JUMP_MAX_DURATION : float = 0.6
+@export var JUMP_MAX_DURATION : float = 0.8
 var jump_timer : float = 0.0
 
 @export_category("GRAVITY")
