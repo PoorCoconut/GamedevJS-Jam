@@ -33,7 +33,6 @@ jobs:
 
       - name: Deploy to Itch.io
         env:
-          # Make sure this matches the secret we created in GitHub!
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        # Updated to push directly to the courier page
-        run: butler push build/web poorcoco/courier:html
+        # Updated to push directly to the bugfree-courier page
+        run: butler push build/web poorcoco/bugfree-courier:html
