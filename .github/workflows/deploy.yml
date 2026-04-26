@@ -15,7 +15,7 @@ jobs:
 
       - name: Export Godot Project
         id: export
-        uses: firebelley/godot-export@v5
+        uses: firebelley/godot-export@v7.0.0
         with:
           godot_version: "4.6.2"
           relative_project_path: "./" # Change this if your project.godot is inside a subfolder
