@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0yd3cg7o426" path="res://actors/player/player.tscn" id="5_o026w"]
 [ext_resource type="PackedScene" uid="uid://dkoukg5r3n3us" path="res://objects/Props/Flag/prop_flag.tscn" id="5_p3oyl"]
 [ext_resource type="PackedScene" uid="uid://cxp5onpv5pax2" path="res://actors/WorldAddons/charging_station.tscn" id="6_o026w"]
+[ext_resource type="PackedScene" uid="uid://btbcu7i2ahwq5" path="res://systems/HUD/player_hud.tscn" id="7_nxxh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3oyl"]
 texture = ExtResource("1_fdcpw")
@@ -164,6 +165,8 @@ position = Vector2(375, -48)
 [node name="WorldCameraComponent" parent="Player" unique_id=1725945058 instance=ExtResource("4_p3oyl")]
 position = Vector2(-2, -6)
 zoom = Vector2(0.5, 0.5)
+
+[node name="PlayerHUD" parent="Player" unique_id=1878162404 instance=ExtResource("7_nxxh3")]
 
 [node name="Area2D" parent="." unique_id=2077206867 instance=ExtResource("6_o026w")]
 position = Vector2(573, -21)

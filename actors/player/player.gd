@@ -37,6 +37,9 @@ var skills = {
 
 var CUR_DIR : Vector2
 
+func _ready() -> void:
+	Events.player_fuel_updated.emit(fuel, MAX_FUEL)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -58,6 +61,7 @@ func use_fuel(action: String, delta: float) -> bool:
 	if fuel <= 0:
 		return false
 	fuel = max(fuel - FUEL_COST[action] * delta, 0)
+	Events.player_fuel_updated.emit(fuel, MAX_FUEL)
 	return true
 
 func use_fuel_flat(action: String) -> bool:
@@ -66,6 +70,7 @@ func use_fuel_flat(action: String) -> bool:
 	if fuel <= 0:
 		return false
 	fuel = max(fuel - FUEL_COST[action], 0)
+	Events.player_fuel_updated.emit(fuel, MAX_FUEL)
 	return true
 
 func has_fuel() -> bool:
@@ -73,3 +78,4 @@ func has_fuel() -> bool:
 
 func refuel(amount: float) -> void:
 	fuel = min(fuel + amount, MAX_FUEL)
+	Events.player_fuel_updated.emit(fuel, MAX_FUEL)

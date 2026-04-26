@@ -4,3 +4,4 @@ extends Node
 
 
 signal player_hp_updated(current_hp, max_hp)
+signal player_fuel_updated(current_fuel: float, max_fuel: float)
