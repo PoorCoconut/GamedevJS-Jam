@@ -32,9 +32,9 @@ script = ExtResource("1_cadqa")
 [node name="BarChaser" type="ProgressBar" parent="BarContainer" unique_id=429415386]
 unique_name_in_owner = true
 offset_left = 8.0
-offset_top = 8.0
+offset_top = 14.0
 offset_right = 136.0
-offset_bottom = 24.0
+offset_bottom = 30.0
 theme_override_styles/background = SubResource("StyleBoxFlat_i0keh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2gw1j")
 show_percentage = false
@@ -42,11 +42,18 @@ show_percentage = false
 [node name="WhiteBar" type="ProgressBar" parent="BarContainer" unique_id=1739072480]
 unique_name_in_owner = true
 offset_left = 8.0
-offset_top = 8.0
+offset_top = 14.0
 offset_right = 136.0
-offset_bottom = 24.0
+offset_bottom = 30.0
 theme_override_styles/background = SubResource("StyleBoxFlat_cadqa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rhs8c")
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="." unique_id=277835653]
+
+[node name="Label" type="Label" parent="." unique_id=150857417]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 14.0
+text = "FUEL"

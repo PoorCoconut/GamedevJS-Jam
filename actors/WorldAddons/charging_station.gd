@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var REFUEL_RATE : float = 20.0
+@export var REFUEL_RATE : float = 40.0
 
 var player_in_range : Player = null
 

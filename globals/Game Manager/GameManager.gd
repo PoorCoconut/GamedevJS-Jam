@@ -11,33 +11,42 @@ func _ready() -> void:
 
 
 ##SAVE FILE LOGIC
-func save_player_position(player_pos: Vector2) -> void:
+func save_player_data(player_pos: Vector2, player_fuel: float) -> void:
 	var save_data = {
 		"player_x": player_pos.x,
-		"player_y": player_pos.y
+		"player_y": player_pos.y,
+		"fuel": player_fuel
 	}
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data, "\t"))
 	print("Game Saved!")
 
-func load_player_position():
-	#Check if the player has ever saved the game before
+func load_player_data():
+	# Check if the player has ever saved the game before
 	if not FileAccess.file_exists(SAVE_PATH):
 		print("No save file found. Starting from the bottom!")
-		return null # Returning null lets the Player node know to use its default spawn
+		return null 
 		
-	#Open the file and read the text
+	# Open the file and read the text
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	var json_text = file.get_as_text()
 	
-	#Parse the JSON back into a dictionary
+	# Parse the JSON back into a dictionary
 	var save_data = JSON.parse_string(json_text)
 	
-	#Extract the coordinates and return them as a usable Vector2
-	if save_data and save_data.has("player_x") and save_data.has("player_y"):
+	# Extract the coordinates and fuel, then return them as a dictionary
+	if save_data and save_data.has("player_x") and save_data.has("player_y") and save_data.has("fuel"):
 		var loaded_pos = Vector2(save_data["player_x"], save_data["player_y"])
+		var loaded_fuel = float(save_data["fuel"]) # Cast to float just to be safe
+		
 		print("Save loaded! Teleporting player to: ", loaded_pos)
-		return loaded_pos
+		
+		return {
+			"position": loaded_pos,
+			"fuel": loaded_fuel
+		}
+	
+	print("Something weird happened! Player data not loaded.")
 	return null
 
 ##Next Level Helper Functions
