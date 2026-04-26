@@ -9,7 +9,7 @@ extends Control
 @onready var slider_mu_vol: HSlider = %Slider_MuVol
 @onready var slider_s_vol: HSlider = %Slider_SVol
 
-@export_file("*.tscn") var next_level_path : String
+@export_file("*.scn") var next_level_path : String
 
 func _ready() -> void:
 	slider_ma_vol.value = SettingsManager.master_vol
