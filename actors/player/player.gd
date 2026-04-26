@@ -41,6 +41,9 @@ func _ready() -> void:
 	Events.player_fuel_updated.emit(fuel, MAX_FUEL)
 
 func _physics_process(delta: float) -> void:
+	if velocity.x != 0:
+		$Sprite.flip_h = velocity.x < 0
+	
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	move_and_slide()
