@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Butler
-        uses: jdno/setup-butler@v2
+        uses: jdno/setup-butler@v1
         
       - name: Deploy to Itch.io
         run: butler push ${{ steps.export.outputs.archive_directory }}/Web.zip poorcoco/courier:html
