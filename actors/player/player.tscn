@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://d3lf4fkm82jwh"]
+[gd_scene format=3 uid="uid://begvhj5jhxtcv"]
 
-[ext_resource type="Texture2D" path="res://actors/player/player_test.png" id="2_gtayc"]
+[ext_resource type="Texture2D" uid="uid://cn54imvpy0y26" path="res://actors/player/player_test.png" id="2_gtayc"]
 [ext_resource type="Script" uid="uid://bhxjxgka2uddu" path="res://systems/FSM/FSM.gd" id="2_vknxo"]
-[ext_resource type="Script" uid="uid://bip5hhxeryemi" path="res://actors/player/player.gd" id="2_xdu1m"]
+[ext_resource type="Script" uid="uid://b5sccawimxmbv" path="res://actors/player/player.gd" id="2_xdu1m"]
 [ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Hitbox and Hurtbox Components/hitbox_component.tscn" id="3_hgpti"]
 [ext_resource type="Script" uid="uid://bw3f8fhya63os" path="res://actors/player/PlayerFSM/Platformer/state_idle.gd" id="3_okyr1"]
 [ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Hitbox and Hurtbox Components/hurtbox_component.tscn" id="4_qrk3m"]
