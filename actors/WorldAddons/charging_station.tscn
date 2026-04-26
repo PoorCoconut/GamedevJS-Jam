@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxp5onpv5pax2"]
 
 [ext_resource type="Script" uid="uid://c3iwpnfw01qxr" path="res://actors/WorldAddons/charging_station.gd" id="1_5w0f5"]
+[ext_resource type="Texture2D" uid="uid://c4bdp3m1gou1l" path="res://game_assets/menu/fuel_station.png" id="2_r43rn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8y6x"]
 radius = 27.0
@@ -10,5 +11,10 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5w0f5")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868955234]
+position = Vector2(0, -16)
+texture = ExtResource("2_r43rn")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=280931543]
+position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_v8y6x")
