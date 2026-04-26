@@ -213,10 +213,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="SettingsTabs" type="TabContainer" parent="SettingsContainer" unique_id=1400921541]
 layout_mode = 2
@@ -252,7 +252,6 @@ theme_override_constants/separation = 14
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MasterVolume" unique_id=88844148]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "Master"
 
 [node name="Slider_MaVol" type="HSlider" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MasterVolume" unique_id=637964225]
@@ -268,7 +267,6 @@ theme_override_constants/separation = 19
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MusicVolume" unique_id=1012630994]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "Music"
 
 [node name="Slider_MuVol" type="HSlider" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/MusicVolume" unique_id=1222097655]
@@ -284,7 +282,6 @@ theme_override_constants/separation = 28
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/SFXVolume" unique_id=1136966587]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "SFX"
 
 [node name="Slider_SVol" type="HSlider" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer/SFXVolume" unique_id=1461787990]
@@ -299,7 +296,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.60693425, 0.54883397, 1)
-theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[shake]WARNING! YOU ARE ABOUT TO RESET EVERYTHING. INCLUDING YOUR SAVE FILE!"
 fit_content = true
@@ -311,14 +307,12 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.9999997, 0.13447198, 0.38570955, 1)
-theme_override_font_sizes/font_size = 8
 text = "NUKE MY FILE!"
 
 [node name="ResetButton" type="Button" parent="SettingsContainer/SettingsTabs/GeneralSettings/VBoxContainer" unique_id=1591014304]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 8
 text = "RESET GAME"
 
 [node name="ViewportSettings" type="MarginContainer" parent="SettingsContainer/SettingsTabs" unique_id=2086456263]
@@ -346,7 +340,6 @@ theme_override_constants/separation = 19
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/ScreenResolution" unique_id=495751952]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "Screen Resolution"
 
 [node name="ScreenResAccordion2" type="FoldableContainer" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/ScreenResolution" unique_id=1578316268]
@@ -359,17 +352,14 @@ layout_mode = 2
 
 [node name="Button_1080p" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/ScreenResolution/ScreenResAccordion2/VBoxContainer" unique_id=1520860721]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "1980x1080"
 
 [node name="Button_720p" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/ScreenResolution/ScreenResAccordion2/VBoxContainer" unique_id=1963271185]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "1280x720"
 
 [node name="Button_540p" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/ScreenResolution/ScreenResAccordion2/VBoxContainer" unique_id=976220345]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "990x540"
 
 [node name="WindowMode" type="HBoxContainer" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer" unique_id=463611335]
@@ -378,7 +368,6 @@ theme_override_constants/separation = 14
 
 [node name="Label" type="Label" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/WindowMode" unique_id=1182272754]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "Window Mode"
 
 [node name="WindowModeAccordion" type="FoldableContainer" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/WindowMode" unique_id=1854593696]
@@ -391,17 +380,14 @@ layout_mode = 2
 
 [node name="Button_Windowed" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/WindowMode/WindowModeAccordion/VBoxContainer" unique_id=1876477194]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "WINDOWED"
 
 [node name="Button_Fullscreen" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/WindowMode/WindowModeAccordion/VBoxContainer" unique_id=976583148]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "FULLSCREEN"
 
 [node name="Button_ExclusiveFullscreen" type="Button" parent="SettingsContainer/SettingsTabs/ViewportSettings/VBoxContainer/WindowMode/WindowModeAccordion/VBoxContainer" unique_id=1864238956]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
 text = "EXCLUSIVE FULLSCREEN"
 
 [node name="ControlsSettings" type="MarginContainer" parent="SettingsContainer/SettingsTabs" unique_id=2007466088]
@@ -456,9 +442,6 @@ size_flags_horizontal = 3
 script = ExtResource("2_c5njb")
 action_name = "move_up"
 bind_index = 1
-allow_keyboard = false
-allow_mouse = false
-allow_joypad = false
 
 [node name="MoveDown" type="Label" parent="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer/ScrollContainer/RebindContainer" unique_id=857840880]
 layout_mode = 2
@@ -511,6 +494,23 @@ script = ExtResource("2_c5njb")
 action_name = "move_right"
 bind_index = 1
 
+[node name="Accelerate" type="Label" parent="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer/ScrollContainer/RebindContainer" unique_id=660343785]
+layout_mode = 2
+text = "Move Right"
+
+[node name="PrimaryDash" type="Button" parent="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer/ScrollContainer/RebindContainer" unique_id=535414875]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_c5njb")
+action_name = "dash"
+
+[node name="SecondaryDash" type="Button" parent="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer/ScrollContainer/RebindContainer" unique_id=1703333605]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_c5njb")
+action_name = "dash"
+bind_index = 1
+
 [node name="Control" type="Control" parent="SettingsContainer/SettingsTabs/ControlsSettings/VBoxContainer" unique_id=1931820873]
 layout_mode = 2
 
@@ -530,11 +530,10 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -50.0
-offset_bottom = 28.0
+offset_bottom = 18.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 8
 text = "BACK"
 
 [connection signal="pressed" from="ButtonContainerSizer/ButtonContainer/Button_Play" to="." method="_on_button_play_pressed"]

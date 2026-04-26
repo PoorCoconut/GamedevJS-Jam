@@ -13,6 +13,7 @@ func _physics_process(delta: float) -> void:
 		player_in_range.refuel(REFUEL_RATE * delta)
 
 func _on_body_entered(body: Node) -> void:
+	SoundBank.play_global_sfx("brew_done")
 	if body is Player:
 		%Smoke.emitting = true
 		player_in_range = body

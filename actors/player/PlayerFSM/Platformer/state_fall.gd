@@ -8,6 +8,8 @@ func updateState(delta : float):
 	PLAYER.move_and_slide()
 	
 	if PLAYER.is_on_floor():
+		SoundBank.play_global_sfx("explosion")
+		GameManager.do_camera_shake(3, 0.5)
 		transition.emit(self, "Run")
 
 func movement(delta : float) -> void:

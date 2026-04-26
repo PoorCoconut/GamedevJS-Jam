@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dvf0ljteskys8"]
+
+[ext_resource type="Script" uid="uid://bog2ipgfxi2qs" path="res://game_scenes/menus/WinMenu/win_menu.gd" id="1_j1pvt"]
+
+[node name="WinMenu" type="Control" unique_id=349521445]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_j1pvt")
+next_level_path = "uid://camlgx74mlna4"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=991794628]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 184.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=201646745]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 184.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]You delivered the letter![/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1256200605]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 208.0
+bbcode_enabled = true
+text = "[wave]Click a button to Continue"
+horizontal_alignment = 1
+vertical_alignment = 1

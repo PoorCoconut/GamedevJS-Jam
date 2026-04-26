@@ -12,6 +12,7 @@ const DASH_DECAY : float = 40.0
 const BURST_DURATION : float = 0.12
 
 func enterState():
+	SoundBank.play_global_sfx("drink")
 	if not PLAYER.has_skill("dash"):
 		transition.emit(self, "Idle")
 		return

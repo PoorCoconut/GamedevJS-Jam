@@ -1,5 +1,6 @@
 extends State
 func enterState():
+	SoundBank.play_global_sfx("button")
 	PLAYER.velocity.y = PLAYER.JUMP_VELOCITY
 	PLAYER.jump_timer = 0.0
 	PLAYER.velocity.x *= 0.5
