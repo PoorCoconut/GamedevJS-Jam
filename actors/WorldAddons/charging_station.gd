@@ -14,8 +14,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
+		%Smoke.emitting = true
 		player_in_range = body
 
 func _on_body_exited(body: Node) -> void:
 	if body is Player:
+		%Smoke.emitting = false
 		player_in_range = null
