@@ -29,7 +29,6 @@ shape = SubResource("CircleShape2D_xboos")
 
 [node name="DebugStateLabel" type="Label" parent="." unique_id=1664998739]
 unique_name_in_owner = true
-visible = false
 offset_left = -24.0
 offset_top = -96.0
 offset_right = 26.0

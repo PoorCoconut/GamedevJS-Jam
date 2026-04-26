@@ -8,6 +8,9 @@ func updateState(delta : float):
 	if !PLAYER.is_on_floor():
 		transition.emit(self, "Fall")
 	
+	if Input.is_action_just_pressed("dash") and PLAYER.has_skill("dash"):
+		transition.emit(self, "Dash")
+	
 	if Input.is_action_just_pressed("move_up"):
 		transition.emit(self, "Jump")
 
