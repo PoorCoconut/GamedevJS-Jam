@@ -38,6 +38,8 @@ func load_player_position():
 		var loaded_pos = Vector2(save_data["player_x"], save_data["player_y"])
 		print("Save loaded! Teleporting player to: ", loaded_pos)
 		return loaded_pos
+	
+	print("Something weird happened! Player position not loaded.")
 	return null
 
 ##Next Level Helper Functions
