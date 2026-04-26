@@ -12,7 +12,7 @@ class_name Player
 @export var JUMP_VELOCITY : float = -50
 @export var JUMP_MAX_VELOCITY : float = -200.0
 @export var JUMP_ACCELERATION : float = 250.0
-@export var JUMP_MAX_DURATION : float = 0.6
+@export var JUMP_MAX_DURATION : float = 0.8
 var jump_timer : float = 0.0
 
 @export_category("GRAVITY")
@@ -38,6 +38,14 @@ var skills = {
 var CUR_DIR : Vector2
 
 func _ready() -> void:
+	var loaded_data = GameManager.load_player_data()
+	if loaded_data != null:
+		global_position = loaded_data["position"]
+		fuel = loaded_data["fuel"]
+		
+		# Important: Force the UI to update so the bars match the loaded save!
+		Events.player_fuel_updated.emit(fuel, MAX_FUEL)
+	
 	Events.player_fuel_updated.emit(fuel, MAX_FUEL)
 
 func _physics_process(delta: float) -> void:

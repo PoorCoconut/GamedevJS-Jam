@@ -16,6 +16,13 @@ colors = PackedColorArray(0.28294572, 0.28294572, 0.28294572, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_auiti"]
 gradient = SubResource("Gradient_jeyhl")
 
+[sub_resource type="Curve" id="Curve_jeyhl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.859155, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_auiti"]
+curve = SubResource("Curve_jeyhl")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7vgg5"]
 particle_flag_disable_z = true
 angular_velocity_min = -90.000015
@@ -23,6 +30,7 @@ angular_velocity_max = 89.999985
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 19.999977
 gravity = Vector3(0, -30, 0)
+scale_curve = SubResource("CurveTexture_auiti")
 color_ramp = SubResource("GradientTexture1D_auiti")
 anim_offset_max = 1.0
 

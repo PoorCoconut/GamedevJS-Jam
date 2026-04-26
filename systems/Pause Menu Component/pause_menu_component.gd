@@ -79,9 +79,9 @@ func _on_vol_sfx_slider_value_changed(value: float) -> void:
 
 ##NAV BUTTONS AND SAVING
 func _on_menu_button_pressed() -> void:
-	var player = get_tree().get_first_node_in_group("player")
+	var player : Player = get_tree().get_first_node_in_group("player")
 	if player:
-		GameManager.save_player_position(player.global_position)
+		GameManager.save_player_data(player.global_position, player.fuel)
 	
 	# THE FIX: Instantly snap the audio back to normal before the level gets deleted!
 	if muffle_tween and muffle_tween.is_valid(): 
