@@ -7,51 +7,49 @@
 [ext_resource type="Texture2D" uid="uid://b38ro6mu4vh8w" path="res://game_assets/menu/envelopes.png" id="3_x2ujj"]
 [ext_resource type="Shader" uid="uid://c7rydrwatsrqe" path="res://game_scenes/menus/MainMenu/sin.gdshader" id="4_abyub"]
 
-[sub_resource type="Gradient" id="Gradient_kcaeb"]
+[sub_resource type="Gradient" id="Gradient_abyub"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.46296296)
+offsets = PackedFloat32Array(0, 0.58148146)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3phpx"]
-noise_type = 5
-seed = 3
-frequency = 0.0011
-fractal_type = 3
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tc17v"]
+noise_type = 4
+fractal_octaves = 7
 fractal_lacunarity = 5.0
-fractal_gain = 0.7
-fractal_ping_pong_strength = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kcaeb"]
-noise = SubResource("FastNoiseLite_3phpx")
-color_ramp = SubResource("Gradient_kcaeb")
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_tc17v")
+color_ramp = SubResource("Gradient_abyub")
 seamless = true
-invert = true
 
 [sub_resource type="Gradient" id="Gradient_x2ujj"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.54444444)
+offsets = PackedFloat32Array(0, 0.6037037)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x2ujj"]
-noise_type = 5
-seed = 1
+noise_type = 3
+fractal_type = 3
+fractal_octaves = 8
+fractal_gain = 0.8
+metadata/_preview_in_3d_space_ = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_abyub"]
-width = 320
-height = 180
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_x2ujj")
 color_ramp = SubResource("Gradient_x2ujj")
 seamless = true
-as_normal_map = true
 seamless_blend_skirt = 1.0
 bump_strength = 17.5
 
 [sub_resource type="Gradient" id="Gradient_6hcsl"]
-offsets = PackedFloat32Array(0, 0.4402985, 1)
-colors = PackedColorArray(0.36078432, 0.41568628, 0.4509804, 1, 0.16078432, 0.19607843, 0.22352941, 1, 0.019607844, 0.023529412, 0.03137255, 1)
+offsets = PackedFloat32Array(0, 0.8148148, 0.9851852)
+colors = PackedColorArray(0.36078432, 0.41568628, 0.4509804, 1, 0.16078432, 0.19607843, 0.22352941, 1, 0.046281695, 0.06313435, 0.07623566, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1bdr"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_abyub"]
 gradient = SubResource("Gradient_6hcsl")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcaeb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abyub"]
+resource_local_to_scene = true
 shader = ExtResource("2_3phpx")
 shader_parameter/pixelation = Vector2(320, 180)
 shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_kcaeb")
@@ -60,7 +58,7 @@ shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_abyub")
 shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
 shader_parameter/center_pos = Vector2(0.5, 0)
 shader_parameter/position_impact = 0.75
-shader_parameter/color_gardient = SubResource("GradientTexture1D_b1bdr")
+shader_parameter/color_gardient = SubResource("GradientTexture1D_abyub")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_abyub"]
 particles_animation = true
@@ -127,7 +125,7 @@ script = ExtResource("1_h6sl1")
 next_level_path = "uid://bpok3o8xuppop"
 
 [node name="Background" type="ColorRect" parent="." unique_id=133059736]
-material = SubResource("ShaderMaterial_kcaeb")
+material = SubResource("ShaderMaterial_abyub")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
